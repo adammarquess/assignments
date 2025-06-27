@@ -1,0 +1,70 @@
+using namespace std;
+#include <iostream>
+#include <string>
+
+
+
+
+
+  const string MESSAGE_WELCOME = "Welcome to my Weekly Payroll program!!" ;
+  const string MESSAGE_GOODBYE = "Thank you for using the weekly payroll calculator!!";
+  const string MESSAGE_pAYROLL_SUMMARY = "Here is your Payroll Summary.";
+
+  const string PROMPT_EMPLOYEE_ID = "Enter employee ID number (numbers only):";
+  const string PROMPT_HOURS_WORKED = "Enter number of hours worked (whole numbers):";
+ const string PROMPT_HOURLY_RATE = " Enter the hourly rate";
+  const string PROMPT_FED_WITHHOLD = "Enter federal withholding rate";
+
+  const string LABEL_GROSS_PAY = "Total Gross Pay: $";
+  const string LABEL_FED_WITHHOLD = "Federal Withholdings: $";
+  const string LABEL_NET_PAY = "Net pay: $";
+
+  int main() {
+    
+  int employId = 0;
+  int hoursWorked = 0;
+  int hourlyRate = 0;
+  int  fedWithholding = 0;
+  int grossPay = 0;
+  int taxWithheld = 0;
+  int netPay = 0;
+
+    cout << MESSAGE_WELCOME << endl;
+
+ 
+     cout << endl; 
+
+     cout << PROMPT_EMPLOYEE_ID << endl;
+     cin >> employId;
+
+     cout << PROMPT_HOURS_WORKED << endl;
+     cin >> hoursWorked;
+
+     cout << PROMPT_HOURLY_RATE << endl;
+     cin >> hourlyRate;
+
+     cout << PROMPT_FED_WITHHOLD << endl;
+     cin >> fedWithholding;
+     
+       grossPay = hourlyRate * hoursWorked;
+       taxWithheld = (grossPay * (fedWithholding / 100.0));
+       netPay = (grossPay - taxWithheld);
+
+     
+     cout << endl;
+
+     cout << MESSAGE_pAYROLL_SUMMARY << endl;
+     cout << endl;
+     
+     cout << LABEL_GROSS_PAY << grossPay << endl;
+     cout << LABEL_FED_WITHHOLD << taxWithheld << endl;
+     cout << LABEL_NET_PAY << netPay << endl;
+
+     cout << endl;
+     cout << MESSAGE_GOODBYE << endl;
+
+    
+
+
+  return 0;
+}
