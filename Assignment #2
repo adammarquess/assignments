@@ -1,0 +1,113 @@
+// ------------- FILE HEADER -------------
+// Author: Adam Marquess
+// Assignment: Oreo cookie calculator
+// Date: 7/3/2025
+// Description: calculate colories from cookies
+// Sources: zybooks
+
+
+// ------------- ZYBOOKS SCORES -------------
+// https://learn.zybooks.com/zybook/PCCCS161ASummer25
+// Chapter: 2
+// Participation: 97%
+// Challenge: 100%
+// Labs: 100%
+
+
+// ------------- DISCORD POSTS -------------
+// https://discord.com/invite/URYKKf8YHm
+// Count:1
+// Links (Optional): 
+
+
+// ------------- DESIGN DOCUMENT -------------
+// A. INPUT [yes/no]:  yes cookiesEaten
+// B. OUTPUT [yes/no]: yes numCalories
+// C. CALCULATIONS [yes/no]: yes ( cookiesEaten * 5.0 = servingSize) (caloriesEaten = servingSize * 160.0)
+// D. LOGIC and ALGORITHMS [yes/no]: yes 
+//    (Optional) flow chart link or file name: 
+
+
+// ------------- TESTING -------------
+// PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: 
+// (Optional) Additional tests count:   
+
+
+// ------------- CODE -------------
+#include <bits/stdc++.h>
+#include <cmath>
+using namespace std;
+
+
+int main()
+{
+ string welcomeMessage = "Welcome to Oreo's calorie calcultor!!";
+ 
+ string promptMessage = "Enter the number of cookies:";
+ string goodbyeMessage = " Keep eating Oreo's";
+
+ int cookiesEaten;
+ cin >> cookiesEaten;
+ 
+  cout << welcomeMessage << endl;
+  cout << endl;
+   cout << promptMessage  << endl;
+   cout << endl;
+   
+  cout << fixed << setprecision(1);
+ double servingSize;
+ servingSize = cookiesEaten / 5.0;
+ cout << cookiesEaten <<" is "<< servingSize << " servings of Oreo's!" <<  endl;
+ 
+  double caloriesEaten;
+ static_cast<double> ( caloriesEaten = servingSize * 160.0);
+ 
+
+ 
+cout << servingSize << " servings of Oreo's is " << caloriesEaten << " calories consumed." << endl;
+cout << endl;
+cout << goodbyeMessage << endl;
+ 
+ return 0;
+}
+ 
+
+
+
+
+
+// ------------- DESIGN -------------
+/* 
+Program Name: cookie calculator
+
+Program Description:
+calculatr the number of calories eaten based on serving size of oreos 
+
+Design:
+A. INPUT
+Define the input variables including name data type. 
+number of cookies eaten
+
+B. OUTPUT
+Define the output variables including data types. 
+the outputs are the serving size and the number of calories
+
+C. CALCULATIONS
+Describe calculations used by algorithms in step D.  
+List all formulas. 
+ ( cookiesEaten * 5.0 = servingSize)
+(caloriesEaten = servingSize * 160.0)
+
+
+D. LOGIC and ALGORITHMS
+Design the logic of your program using pseudocode or flowcharts. 
+
+For this code the first step was to determin the inputs, That is the number of cookies.
+next is to conver the number of cookies to serving size. 
+finally calculate the calories based on the serving size. and multiply by how many serving sizes were eaten
+
+
+SAMPLE RUNS
+Copy from assignment document.
+
+*/
