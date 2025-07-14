@@ -1,0 +1,221 @@
+// ------------- FILE HEADER -------------
+// Author: Adam Marquess
+// Assignment: #3 Ferry calculator
+// Date: 7/13/25
+// Description:Calculate ferry pricing
+// Sources: 
+
+
+// ------------- ZYBOOKS SCORES -------------
+// https://learn.zybooks.com/zybook/PCCCS161ASummer25
+// Chapter: 3
+// Participation: 99%
+// Challenge: 100%
+// Labs: 100%
+
+
+// ------------- DISCORD POSTS -------------
+// https://discord.com/invite/URYKKf8YHm
+// Count:
+// Links (Optional): 
+
+
+// ------------- DESIGN DOCUMENT -------------
+// A. INPUT [yes/no]:  yes
+// B. OUTPUT [yes/no]: yes
+// C. CALCULATIONS [yes/no]: yes
+// D. LOGIC and ALGORITHMS [yes/no]:yes
+//    (Optional) flow chart link or file name: 
+https://drive.google.com/file/d/1IYRSPIhEhS20ZYoYnDVvOlKv8xMoV7dT/view?usp=sharing
+
+
+// ------------- TESTING -------------
+// PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: yes
+// (Optional) Additional tests count:   
+
+
+// ------------- CODE -------------
+#include <bits/stdc++.h>
+#include <iomanip>
+#include <iostream>
+using namespace std;
+
+
+/*Print the Ferries Fare Information menu to the user (see sample run and table below).
+
+Note that the Bike Charge is included in the Vehicle Fee. Meaning if they have a Vehicle do not ask for the Number of Bikes. See sample run below for clarification.
+
+Your program must prompt the user for information exactly as shown in the sample run below. This is a required coding construct.
+
+If the user enters an invalid answer for the first question (use a char for this question and if they answer anything other than y/n), you must output an error message and end the program.
+
+This question should accept both uppercase and lower case answers.
+
+If the user enters any invalid numbers, print an error message and end the program. This could be negative numbers for any numbers, or unreasonable amounts for the number of people. No more than 20 people per group (not including the driver!).
+
+Calculate the total price based on the ticket type and number of tickets.
+
+If the total price is over $100, output a message saying they get a free adult ticket for their next trip. Else output the difference and tell them how much they need to spend to earn the free ticket.
+
+Do not have any redundant code inside your if statements. You must have if else statements where appropriate or you may use switch statements.
+
+No goto statements or break statements allowed except inside a switch statement.
+
+Output the amount formatted to 2 decimal places with proper money formatting.
+
+Look at the sample run below for examples.
+
+Use this simplified fare table below for your calculations: */
+
+
+int main()
+{
+// welcome message
+   cout << "Welcome to the Washington State Ferries Fare Calculator!" << endl;
+   cout << endl; 
+   cout << "Fare Desrciption" << setw(52) << "Ticket $" << endl;
+   cout << setfill('*') << setw(20) <<  " " ;
+   cout <<  setfill(' ') << setw(40) << " ";
+   cout << setfill('*') << setw(10) << " " << endl;
+   cout << " Vehicles Under 14' (less than 168\") & Driver";
+   cout << setfill(' ') <<  setw(14) <<" " << " $57.90" << endl;
+   cout << " Adult (age 19 - 64) " << setw(45) << "$14.95" << endl;
+   cout << " Senior (age 65 & over) / Disability " << setw(28) << "$7.40" << endl;
+   cout << " Youth (age 6 - 18)" << setw(46) << "$5.55" << endl;
+   cout << " Bicycle Surcharge (included with Vehicle)" << setw(23) << "$4.00" << endl;
+   cout << endl;
+   
+   // declare cin and int
+   char vehicle = ' ';
+   double adults = 14.95;
+   int numAdults;
+   double seniors = 7.40;
+   int numSeniors;
+   double youths = 5.55;
+   int numYouths;
+   double bikes = 4.00;
+   int numBikes;
+   double vehiclePrice = 57.90;
+   double totCharge ;
+   string endMessage = " Thank you for using the Washington State Farries Fare Calculator!";
+   
+   
+   cout << "Are you riding a vehicle on the Ferry (Y/N):" << endl;
+   
+     cin >> vehicle;
+     vehicle = tolower(vehicle);
+     if ((vehicle != 'y') && (vehicle != 'n')) {
+      cout << "Error!! Invalid answer!! Please try again later!!!";
+      cout << endl;
+      goto end;
+    }
+     else if (( vehicle == 'y') || (vehicle == 'Y')) {
+       cout << "How many adults?" << endl;
+       cin >> numAdults;
+       cout << "How many seniors?" << endl;
+       cin >> numSeniors;
+       cout << "How many youths?" << endl;
+       cin >> numYouths;
+       cout << endl;
+       totCharge = ((adults * numAdults) + (seniors * numSeniors) + (youths * numYouths)  + vehiclePrice);
+  
+     }
+     
+    else if (( vehicle == 'n') || (vehicle == 'N')){
+      cout << "How many adults?" << endl;
+       cin >> numAdults;
+       cout << "How many seniors?" << endl;
+       cin >> numSeniors;
+       cout << "How many youths?" << endl;
+       cin >> numYouths;
+       cout << "How many bikes?" << endl;
+       cin >> numBikes;
+       cout << endl;
+       totCharge = ((adults * numAdults) + (seniors * numSeniors) + (youths * numYouths) + (bikes * numBikes));
+         
+     }
+          if ((numAdults + numSeniors + numYouths + numBikes) > 25) {
+       cout << "Uh oh!! Too many people in your group. Split into 2 groups and try again!" << endl;
+       cout << endl;
+       goto end;
+      
+     }
+     
+      if ((numAdults < 0) || (numSeniors < 0) || (numYouths < 0) || (numBikes < 0)) {
+        cout << "Error!! Invalid answer!! Please try again later!!!" << endl;
+        cout << endl;
+        goto end;
+        
+     }
+  
+      
+     cout << fixed << setprecision(2);
+   cout << "Your total charge is $" << totCharge << endl;
+    if (totCharge >= 100.00){
+      cout << "You earned a free Adult ticket for your next trip!!" << endl;
+      cout << endl;
+    }
+  
+  
+     else { cout << "If you spend $" << (100.00 - totCharge) << " more, you are eligible for a free adult ticket for the next trip." << endl;
+     }
+     cout << endl;
+     
+      end:
+     // end message
+     cout << endMessage;
+
+
+
+
+// ------------- DESIGN -------------
+/* 
+Program Name: Wash. State Ferry Calculator
+
+Program Description:
+Calculate ferry pricing based on different variables including vehicles, adults, seniors, and youths.
+produce correct pricing based on inputs
+
+Design:
+A. INPUT
+Define the input variables including name data type. 
+doubles: adults, seniors, youths, bikes
+int: numAdults, numSeniors, numYouths, numBikes, vehicles
+
+B. OUTPUT
+Define the output variables including data types. 
+pricing if valid inputs 
+or error message if not valid
+
+C. CALCULATIONS
+Describe calculations used by algorithms in step D.  
+List all formulas. 
+If there are no calculations needed, state there are no calculations.
+the calculation are : 
+
+       totCharge = ((adults * numAdults) + (seniors * numSeniors) + (youths * numYouths)  + vehiclePrice)
+       totCharge = ((adults * numAdults) + (seniors * numSeniors) + (youths * numYouths) + (bikes * numBikes))
+       (numAdults + numSeniors + numYouths + numBikes) > 25)
+
+D. LOGIC and ALGORITHMS
+Design the logic of your program using pseudocode or flowcharts.
+https://drive.google.com/file/d/1IYRSPIhEhS20ZYoYnDVvOlKv8xMoV7dT/view?usp=sharing
+inputs :
+adults- seniors- youths- bikes- vehicle -y or n 
+output: calcultaed fare price 
+if you are driving a vehicle - dont calculate bike
+if more than 25 people - error
+if less than 0 - error
+
+Use conditionals, loops, functions or array constructs.
+List the steps in transforming inputs into outputs. 
+https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
+
+if else statements and if statements 
+
+
+
+SAMPLE RUNS
+Copy from assignment document.
+
+*/
