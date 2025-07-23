@@ -1,0 +1,228 @@
+// ------------- FILE HEADER -------------
+// Author: Adam Marquess
+// Assignment:Mid-Term
+// Date: 07-23-2025
+// Description: Rock collecting Chamionships
+// Sources: 
+
+
+// ------------- ZYBOOKS SCORES -------------
+// https://learn.zybooks.com/zybook/PCCCS161ASummer25
+// Chapter: N/A
+// Participation: N/A
+// Challenge:N/A
+// Labs:N/A
+
+
+// ------------- DISCORD POSTS -------------
+// https://discord.com/invite/URYKKf8YHm
+// Count:2
+// Links (Optional): 
+
+
+// ------------- DESIGN DOCUMENT -------------
+// A. INPUT [yes/no]: yes
+// B. OUTPUT [yes/no]: yes
+// C. CALCULATIONS [yes/no]: yes
+// D. LOGIC and ALGORITHMS [yes/no]:yes
+//    (Optional) flow chart link or file name: 
+
+
+// ------------- TESTING -------------
+// PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: YES
+// (Optional) Additional tests count:   
+
+
+// ------------- CODE -------------
+#include <bits/stdc++.h>
+#include <string>
+using namespace std;
+
+int main() {
+
+ string player1 = " ";
+ string player2 = " ";
+ string player3 = " ";
+ 
+  int  p1Rocks;
+  int  p2Rocks;
+  int  p3Rocks; 
+
+ const int NUM_PLAYERS = 3;
+ 
+    cout << "Welcome to the Rock Collector Championships!" << endl; // Welcome message
+    cout << endl;
+    
+    cout << "Enter Player 1: "; // enter players
+    getline(cin, player1);
+    cout << player1 << endl;
+    cout << "How many rocks did " << player1 << " collect?  ";
+    cin >> p1Rocks;
+    cout << p1Rocks << endl;
+    if ( p1Rocks < 0 ) {
+      cout << "Invalid amount. 0 will be entered." << endl; // 0 OK BUT LESS THAN 0 IS INVALID
+      p1Rocks = 0;
+    }
+    else { p1Rocks = p1Rocks;
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << endl;
+    
+    
+     cout << "Enter Player 2: ";
+    getline(cin, player2);
+    cout << player2 << endl;
+    cout << "How many rocks did " << player2 << " collect?  ";
+    cin >> p2Rocks;
+    cout << p2Rocks << endl;
+     if ( p2Rocks < 0 ) {
+      cout << "Invalid amount. 0 will be entered." << endl;
+      p2Rocks = 0;
+    }
+    else { p2Rocks = p2Rocks;
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << endl;
+    
+        cout << "Enter Player 3: ";
+    getline(cin, player3);
+    cout << player3 << endl;
+    cout << "How many rocks did " << player3 << " collect?  ";
+    cin >> p3Rocks;
+    cout << p3Rocks << endl;
+     if ( p3Rocks < 0 ) {
+      cout << "Invalid amount. 0 will be entered." << endl;
+      p3Rocks = 0;
+    }
+    else { p3Rocks = p3Rocks;
+    }
+    cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    cout << endl;
+    
+    float avrRocks;
+   
+   avrRocks = static_cast<float> ((p1Rocks + p2Rocks + p3Rocks) / (static_cast<float> (NUM_PLAYERS))); // CONVERT INT TO FLOAT-SET DECILMAL POINT
+    cout << fixed << setprecision(2);
+    
+  if ((p1Rocks > p2Rocks) && (p2Rocks > p3Rocks)) { // (ABC)
+    cout << player1 << " is the winner!!" << endl;
+    cout << player2 << " is in second place." << endl;
+    cout << player3 << " is in third place." << endl;
+  }
+  else if ((p1Rocks > p3Rocks) && (p3Rocks  > p2Rocks)) { // (ACB)
+    cout << player1 << " is the winner!!" << endl;
+    cout << player3 << " is in second place." << endl;
+    cout << player2 << " is in third place." << endl;
+  }
+  else if ((p2Rocks > p1Rocks) && (p1Rocks > p3Rocks)) { // (BAC)
+    cout << player2 << " is the winner!!" << endl;
+    cout << player1 << " is in second place." << endl;
+    cout << player3 << " is in third place." << endl;
+  }
+  else if ((p2Rocks > p3Rocks) && (p3Rocks > p1Rocks)) { // (BCA)
+    cout << player2 << " is the winner!!" << endl;
+    cout << player3 << " is in second place." << endl;
+    cout << player1 << " is in third place." << endl;
+  }
+  else if ((p3Rocks > p1Rocks) && (p1Rocks > p2Rocks)) { // (CAB)
+    cout << player3 << " is the winner!!" << endl;
+    cout << player1 << " is in second place." << endl;
+    cout << player2 << " is in third place." << endl;
+  }
+  else if ((p3Rocks > p2Rocks) && (p2Rocks > p1Rocks)) { // (CBA)
+    cout << player3 << " is the winner!!" << endl;
+    cout << player2 << " is in second place." << endl;
+    cout << player1 << " is in third place." << endl;
+  }
+ 
+  else if (p1Rocks == p2Rocks && p2Rocks == p3Rocks){ // (A=B=C)
+    cout << "There is a 3 way tie!!" << endl;
+  }
+  else if (p1Rocks == p2Rocks  && p3Rocks < p1Rocks){ // ((AB)C)
+    cout<< "There is a two way tie for first place between "<< player1 << " and " << player2 << endl;
+  }
+  else if (p1Rocks == p2Rocks  && p3Rocks > p1Rocks){ // (C(AB))
+    cout<< "There is a two way tie for second place between "<< player1 << " and " << player2 << endl;
+  }
+  else if (p2Rocks == p3Rocks  && p1Rocks < p2Rocks){ // (BC)A)
+    cout<< "There is a two way tie for first place between "<< player2 << " and " << player3 << endl;
+  }
+  else if (p2Rocks == p3Rocks  && p1Rocks > p1Rocks){ // (A(BC))
+    cout<< "There is a two way tie for second place between "<< player2 << " and " << player3 << endl;
+  }
+  else if (p1Rocks == p3Rocks  && p2Rocks < p1Rocks){ // (AC)B)
+    cout<< "There is a two way tie for first place between "<< player1 << " and " << player3 << endl;
+  }
+  else if (p1Rocks == p3Rocks  && p2Rocks > p1Rocks){ // (B(AC))
+    cout<< "There is a two way tie for second place between "<< player1 << " and " << player3 << endl;
+  }
+  
+  
+ cout << fixed << setprecision(2);
+ cout << "The average amount of rocks between the top 3 contestants is: " << avrRocks << " rocks" << endl; // AVERAGE
+ cout << endl;
+ cout << "Congratulations Rock Collectors!!! You ROCK!!!" << endl;// END MESSAGE
+  
+return 0;
+}
+  
+ 
+
+
+
+// ------------- DESIGN -------------
+/* 
+Program Name:
+
+Program Description: 
+Calculate winner of rock collecting championship
+
+Design:
+A. INPUT
+Define the input variables including name data type. 
+ string = players names
+int = player rock count
+cont int = number of players
+double = average 
+
+B. OUTPUT
+Define the output variables including data types. 
+winners 
+ties
+welcome message
+goodbye message
+
+
+C. CALCULATIONS
+Describe calculations used by algorithms in step D.  
+List all formulas. 
+If there are no calculations needed, state there are no calculations.
+figure out all possible combonations of winners and ties
+sum of rocks divided by number of players = average
+
+
+D. LOGIC and ALGORITHMS
+Design the logic of your program using pseudocode or flowcharts. 
+Use conditionals, loops, functions or array constructs.
+List the steps in transforming inputs into outputs. 
+https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
+ABC
+ACB
+BAC
+BCA
+CAB
+CBA
+AB-C
+AC-B
+BC-A
+C-AB
+B-AC
+A-CB
+A-B-C
+used to figure out how many combos
+
+
+SAMPLE RUNS
+Copy from assignment document.
+
+*/
