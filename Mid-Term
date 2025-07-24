@@ -147,7 +147,7 @@ int main() {
   else if (p2Rocks == p3Rocks  && p1Rocks < p2Rocks){ // (BC)A)
     cout<< "There is a two way tie for first place between "<< player2 << " and " << player3 << endl;
   }
-  else if (p2Rocks == p3Rocks  && p1Rocks > p1Rocks){ // (A(BC))
+  else if (p2Rocks == p3Rocks  && p1Rocks > p2Rocks){ // (A(BC))
     cout<< "There is a two way tie for second place between "<< player2 << " and " << player3 << endl;
   }
   else if (p1Rocks == p3Rocks  && p2Rocks < p1Rocks){ // (AC)B)
