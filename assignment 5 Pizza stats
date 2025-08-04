@@ -1,0 +1,264 @@
+// ------------- FILE HEADER -------------
+// Author: Adam Marquess
+// Assignment: Pizza stats
+// Date: 8/3/25
+// Description: Pizza statisticsx program
+// Sources: 
+
+
+// ------------- ZYBOOKS SCORES -------------
+// https://learn.zybooks.com/zybook/PCCCS161ASummer25
+// Chapter: 5
+// Participation: 100
+// Challenge:97
+// Labs: 100
+
+
+// ------------- DISCORD POSTS -------------
+// https://discord.com/invite/URYKKf8YHm
+// Count: 0  no help needed , no questions I could answer
+// Links (Optional): 
+
+
+// ------------- DESIGN DOCUMENT -------------
+// A. INPUT [yes/no]: y
+// B. OUTPUT [yes/no]: y
+// C. CALCULATIONS [yes/no]:y
+// D. LOGIC and ALGORITHMS [yes/no]: y
+//    (Optional) flow chart link or file name: 
+
+
+// ------------- TESTING -------------
+// PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: y
+
+// (Optional) Additional tests count:   
+
+
+// ------------- CODE -------------
+#include <bits/stdc++.h>
+#include <cmath>
+#include <iomanip>
+using namespace std;
+
+
+int main(){
+  // 8 slices per pizza
+  // 7 %  sales tax
+  // 20% delivery fee of total including tax
+  
+  
+  
+  // welcome message
+  cout << "Welcome to my Pizza Party Statistics Program!" << endl;
+  cout << endl;
+  
+  //inputs 
+  char again =  'y'; // go again?
+  
+  float averageSlices = 0.0; // slices pre person
+  
+  int numPeople = 0; // number of people
+  
+  float costPerPizza = 0.0; // per pizza
+  
+  float pizzaCost = 0.0; //total cost of  pizza
+  
+   int pizzaNeeded = 0; // number of pizzas nedded
+   
+  // calculation
+  
+  
+  //outputs each entry
+
+ const float SALES_TAX = 0.07;
+ 
+  float tax = 0.0;
+  
+   const float DELIVERY = 0.20;
+   
+  float fee = 0.0;
+  
+  const int SLICES_PER_PIZZA = 8;
+  
+  int numEntries = 0;
+  
+  float fracSlices = 0.0;
+  
+  float slices =0.0;
+  
+  float fracPizzas = 0.0;
+  
+  int sumPizza = 0;
+  float averNumPizza = 0.0;
+  int inputPep = 0;
+  int maxPeople = 0;
+  float inputCost = 0.0;
+  float maxCost = 0.0;
+  float totalCost = 0.0;
+  
+  
+  
+
+  do {
+   
+  cout << "Please enter the number of people, and average number of slices, and cost of pizza seperated by a space." << endl;
+  
+  cin >> numPeople;
+  cin >> averageSlices; 
+  cin >> costPerPizza;
+  
+  numEntries++;
+  
+  cout << fixed << setprecision(2);
+  fracSlices =  (averageSlices) * numPeople;
+  slices = ceil(fracSlices);
+  fracPizzas = slices / SLICES_PER_PIZZA;
+  pizzaNeeded = ceil(fracPizzas);
+  pizzaCost = pizzaNeeded * costPerPizza;
+  
+  tax = pizzaCost * SALES_TAX;
+  
+  fee = (pizzaCost + tax) * DELIVERY;
+  
+  
+  totalCost =  pizzaCost + tax + fee;
+  
+  
+  
+  cout << "Number of Pizzas: " << pizzaNeeded << endl;
+  cout <<  "Cost of pizzas: $" << pizzaCost << endl;
+  cout << "Tax: $" << tax << endl;
+  cout << "Delivery fee: $" << fee << endl;
+  cout << "Total Cost: $" << totalCost << endl;
+  
+  sumPizza = pizzaNeeded + sumPizza;
+  
+  
+  
+  cout << "Do you want to enter more?( y /n )" << endl;
+  cin >> again;
+  cout << endl;
+  
+  
+} while (again != 'n');
+
+
+
+ if ( inputPep < numPeople){
+     maxPeople = numPeople;
+   }
+   
+ if (inputCost < totalCost){
+   maxCost = totalCost;
+ }
+averNumPizza = static_cast <float> (sumPizza) / (numEntries);
+  
+cout << "Number of entries: " << numEntries << endl;
+cout << "Total number of pizzas: " << sumPizza << endl;
+cout << "Average number of pizza's: " << fixed << setprecision(1) << averNumPizza << endl;
+cout << "Maximum number of people: "  << maxPeople << endl;
+cout << "Maximum cost of pizza's: $" << fixed << setprecision(2) << maxCost << endl;
+cout << endl;
+cout << "Thank you for using my program!!"<< endl;
+
+
+
+
+return 0;
+
+   
+}
+
+
+
+
+// ------------- DESIGN -------------
+/* 
+Program Name: Pizza Stats program
+
+Program Description: Calculate the correct amount of pizzas needed for the partys , then calculate the max amount of people at the party
+max amout for pizzas and average pizzas
+
+Design:
+A. INPUT
+
+number of people 
+number of average slices per person
+price per pizza
+
+Define the input variables including name data type. 
+
+B. OUTPUT
+number of pizzas
+amount for the pizzas
+tax and delivery fees
+
+Define the output variables including data types. 
+
+C. CALCULATIONS
+Describe calculations used by algorithms in step D.  
+average slices / 8 slices per pizza = number of pizzas 
+number of pizzas * the cost per pizza = toatal cost for party
+total cost * .07  sales taxe
+total cost plus tax * 0.2 = delivery fee
+
+
+
+List all formulas. 
+If there are no calculations needed, state there are no calculations.
+
+D. LOGIC and ALGORITHMS
+Design the logic of your program using pseudocode or flowcharts. 
+Use conditionals, loops, functions or array constructs.
+List the steps in transforming inputs into outputs. 
+https://github.com/Glen-Sasek-PCC-Instructor/2025-06-22/blob/main/Pseudocode-Reference.txt
+"do loop"
+follow propts and answer y or n to continue 
+if n then end program with final stats
+
+SAMPLE RUNS
+Copy from assignment document.
+STDIN
+10 2.6 10.50
+y
+9 2.5 10.95
+y
+14 3.2 14.95
+n
+Output:
+
+Welcome to my Pizza Party Statistics Program!
+
+Please enter the number of people, and average number of slices, and cost of pizza seperated by a space.
+Number of Pizzas: 4
+Cost of pizzas: $42.00
+Tax: $2.94
+Delivery fee: $8.99
+Total Cost: $53.93
+Do you want to enter more?( y /n )
+
+Please enter the number of people, and average number of slices, and cost of pizza seperated by a space.
+Number of Pizzas: 3
+Cost of pizzas: $32.85
+Tax: $2.30
+Delivery fee: $7.03
+Total Cost: $42.18
+Do you want to enter more?( y /n )
+
+Please enter the number of people, and average number of slices, and cost of pizza seperated by a space.
+Number of Pizzas: 6
+Cost of pizzas: $89.70
+Tax: $6.28
+Delivery fee: $19.20
+Total Cost: $115.17
+Do you want to enter more?( y /n )
+
+Number of entries: 3
+Total number of pizzas: 13
+Average number of pizza's: 4.3
+Maximum number of people: 14
+Maximum cost of pizza's: $115.17
+
+Thank you for using my program!!
+
+*/
