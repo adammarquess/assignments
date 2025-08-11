@@ -1,17 +1,17 @@
 // ------------- FILE HEADER -------------
-// Author: 
-// Assignment:
-// Date:
-// Description:
+// Author: Adam Marquess
+// Assignment: assignment 6
+// Date: 8 10 25
+// Description: Coffee / tea calculator
 // Sources: 
 
 
 // ------------- ZYBOOKS SCORES -------------
 // https://learn.zybooks.com/zybook/PCCCS161ASummer25
-// Chapter: 
-// Participation: 
-// Challenge:
-// Labs:
+// Chapter: 6
+// Participation: 100
+// Challenge:100
+// Labs:100
 
 
 // ------------- DISCORD POSTS -------------
@@ -21,15 +21,15 @@
 
 
 // ------------- DESIGN DOCUMENT -------------
-// A. INPUT [yes/no]: 
-// B. OUTPUT [yes/no]:
-// C. CALCULATIONS [yes/no]:
-// D. LOGIC and ALGORITHMS [yes/no]:
+// A. INPUT [yes/no]: yes
+// B. OUTPUT [yes/no]: yes
+// C. CALCULATIONS [yes/no]:yes
+// D. LOGIC and ALGORITHMS [yes/no]:yes
 //    (Optional) flow chart link or file name: 
 
 
 // ------------- TESTING -------------
-// PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: 
+// PASS ALL GIVEN SAMPLE RUN TESTS [yes/no]: yes
 // (Optional) Additional tests count:   
 
 
@@ -171,23 +171,36 @@ int main() {
 
 // ------------- DESIGN -------------
 /* 
-Program Name:
+Program Name: Coffee/Tea program
 
-Program Description:
+Program Description: A program to ecept money to sell either coffee or tes
 
 Design:
 A. INPUT
+input coins
+input either coffee or tea or quit
+input amount 
+
 Define the input variables including name data type. 
 
 B. OUTPUT
+output balance 
+output total 
+output balance after transaction
+
 Define the output variables including data types. 
 
 C. CALCULATIONS
+sum of all coins depositied
+sum of ammount of coffee or tea wanted
+balance subtract by amount
+
 Describe calculations used by algorithms in step D.  
 List all formulas. 
 If there are no calculations needed, state there are no calculations.
 
 D. LOGIC and ALGORITHMS
+
 Design the logic of your program using pseudocode or flowcharts. 
 Use conditionals, loops, functions or array constructs.
 List the steps in transforming inputs into outputs. 
